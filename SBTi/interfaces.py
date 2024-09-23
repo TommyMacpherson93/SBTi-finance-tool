@@ -163,9 +163,27 @@ class IDataProviderTarget(BaseModel):
     end_year: int
     time_frame: Optional[ETimeFrames]
     achieved_reduction: Optional[float] = 0
+    target_ids: List[str] = Field(
+        default_factory=list,
+        description="""Data providers can provide a unique identifier for each target. This identifier can then be
+        used to link companies to scores.""",
+    )
 
     @validator("start_year", pre=True, always=False)
     def validate_e(cls, val):
         if val == "" or val == "nan" or pd.isnull(val):
             return None
         return val
+
+    @validator("target_ids", pre=True)
+    def convert_to_list(cls, v):
+        """
+        targets can be combined so target_ids field must be a list
+        pre=True is used to ensure that the validator is called before the default_factory
+        with pre=True and default_factory the users can supply single strings, e.g. "Target1"
+        """
+        if isinstance(v, list):
+            return v
+        if pd.isnull(v):
+            return []
+        return [v]

@@ -13,6 +13,7 @@ class ColumnsConfig:
     COMPANY_ISIN = "company_isin"
     COMPANY_LEI = "company_lei"
     COMPANY_ISIC = "isic"
+    TARGET_IDS = "target_ids"
     REGRESSION_PARAM = "param"
     REGRESSION_INTERCEPT = "intercept"
     MARKET_CAP = "company_market_cap"
@@ -167,6 +168,25 @@ class PortfolioCoverageTVPConfig(PortfolioAggregationConfig):
     OUTPUT_WEIGHTED_TARGET_STATUS = "weighted_sbti_target_status"
     VALUE_TARGET_NO = "No target"
     VALUE_TARGET_SET = "Near-term"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     VALUE_ACTION_COMMITTED = "Commitment"
     VALUE_ACTION_TARGET = "Target"
 
