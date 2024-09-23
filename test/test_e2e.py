@@ -1,26 +1,22 @@
+import copy
 import unittest
-from unittest.case import SkipTest
+from typing import List
+
+import SBTi
+from SBTi.data.data_provider import DataProvider
 from SBTi.interfaces import (
     EScope,
     ETimeFrames,
-    IDataProviderCompany,
-    IDataProviderTarget,
     PortfolioCompany,
 )
-
+from SBTi.interfaces import IDataProviderCompany, IDataProviderTarget
+from SBTi.portfolio_aggregation import PortfolioAggregationMethod
 from SBTi.temperature_score import (
     EngagementType,
     Scenario,
     ScenarioType,
     TemperatureScore,
 )
-from SBTi.portfolio_aggregation import PortfolioAggregationMethod
-import copy
-import SBTi
-from typing import List
-from SBTi.data.data_provider import DataProvider
-from typing import List
-from SBTi.interfaces import IDataProviderCompany, IDataProviderTarget
 
 
 class TestDataProvider(DataProvider):
